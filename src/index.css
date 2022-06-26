@@ -21,7 +21,7 @@ code {
 .form-select {
   background: transparent;
   color: #ffffff;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 
 select option {
@@ -58,6 +58,7 @@ select option {
 /* location-and-date */
 .location-and-date {
   width: 100%;
+  text-transform: capitalize;
 }
 
 .location-and-date__location {
@@ -65,8 +66,6 @@ select option {
   font-size: 2em;
   font-weight: 600;
 }
-
-
 
 /* current-temperature */
 .current-temperature {
@@ -99,6 +98,7 @@ select option {
   margin-left: -0.6em;
   text-align: center;
   font-size: 1.125em;
+  text-transform: capitalize;
 }
 
 
