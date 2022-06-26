@@ -29,3 +29,7 @@ Para crear los archivos finales para un ambiente de producción, basta con ejecu
 Una vez montada la webapp, al inicio de la misma le aparece un listado de ciudades predefinidas y cada vez que cambie la ciudad, esta realizará la consulta al API y desplegará la nueva información en pantalla.
 
 Obs: es obligatorio tener acceso sin restricciones a Internet para que puedan descargarse los recursos de los CDN y/o acceder a la API para consumir la información de la misma.
+
+## Versión publicada
+
+Se puede acceder a la versión final de manera publica con el siguiente enlace [https://sunny-conkies-0e5e91.netlify.app/](https://sunny-conkies-0e5e91.netlify.app/) 
