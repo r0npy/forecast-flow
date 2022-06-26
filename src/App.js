@@ -66,15 +66,15 @@ function App() {
 				<div className="current-temperature">
 					<div className="current-temperature__icon-container">
 						<img
-							src={mostlySunny}
+							src={weather.weather ? `http://openweathermap.org/img/wn/${weather.weather[0]?.icon}@2x.png` : ''}
 							className="current-temperature__icon"
-							alt=""
+							alt={weather.weather ? weather.weather[0]?.description : ''}
 						/>
 					</div>
 					<div className="current-temperature__content-container">
 						<div className="current-temperature__value">{weather.main?.temp.toFixed(1)}&deg;</div>
 						<div className="current-temperature__summary">
-							{weather.weather[0]?.description}
+							{weather.weather ? weather.weather[0]?.description : ''}
 						</div>
 					</div>
 				</div>
