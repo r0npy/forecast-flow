@@ -30,7 +30,13 @@ function App() {
 					.then((response) => {
 						console.log(response.data);
 						setWeatherDaily(response.data);
+					})
+					.catch((error) => {
+						console.error(error);
 					});
+			})
+			.catch((error) => {
+				console.error(error);
 			});
 	}
 
