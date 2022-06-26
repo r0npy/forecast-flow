@@ -66,15 +66,21 @@ function App() {
 				<div className="current-temperature">
 					<div className="current-temperature__icon-container">
 						<img
-							src={weather.weather ? `http://openweathermap.org/img/wn/${weather.weather[0]?.icon}@2x.png` : ''}
+							src={
+								weather.weather
+									? `http://openweathermap.org/img/wn/${weather.weather[0]?.icon}@2x.png`
+									: ""
+							}
 							className="current-temperature__icon"
-							alt={weather.weather ? weather.weather[0]?.description : ''}
+							alt={weather.weather ? weather.weather[0]?.description : ""}
 						/>
 					</div>
 					<div className="current-temperature__content-container">
-						<div className="current-temperature__value">{weather.main?.temp.toFixed(1)}&deg;</div>
+						<div className="current-temperature__value">
+							{weather.main?.temp.toFixed(1)}&deg;
+						</div>
 						<div className="current-temperature__summary">
-							{weather.weather ? weather.weather[0]?.description : ''}
+							{weather.weather ? weather.weather[0]?.description : ""}
 						</div>
 					</div>
 				</div>
@@ -95,7 +101,9 @@ function App() {
 							{weather.wind?.speed.toFixed(0)}kmh
 						</div>
 						<div className="current-stats__label">Viento</div>
-						<div className="current-stats__value">{weather.main?.humidity.toFixed(0)}%</div>
+						<div className="current-stats__value">
+							{weather.main?.humidity.toFixed(0)}%
+						</div>
 						<div className="current-stats__label">Humedad</div>
 					</div>
 					<div>
@@ -107,47 +115,6 @@ function App() {
 							{convertTimestampToHour(weather.sys?.sunset)}
 						</div>
 						<div className="current-stats__label">Ocaso</div>
-					</div>
-				</div>
-
-				<div className="weather-by-hour">
-					<h2 className="weather-by-hour__heading">Clima de Hoy</h2>
-					<div className="weather-by-hour__container">
-						<div className="weather-by-hour__item">
-							<div className="weather-by-hour__hour">3am</div>
-							<img src={mostlySunny} alt="Mayormente Soleado" />
-							<div>14&deg;</div>
-						</div>
-						<div className="weather-by-hour__item">
-							<div className="weather-by-hour__hour">6am</div>
-							<img src={mostlySunny} alt="Mayormente Soleado" />
-							<div>16&deg;</div>
-						</div>
-						<div className="weather-by-hour__item">
-							<div className="weather-by-hour__hour">9am</div>
-							<img src={mostlySunny} alt="Mayormente Soleado" />
-							<div>17&deg;</div>
-						</div>
-						<div className="weather-by-hour__item">
-							<div className="weather-by-hour__hour">12pm</div>
-							<img src={mostlySunny} alt="Mayormente Soleado" />
-							<div>19&deg;</div>
-						</div>
-						<div className="weather-by-hour__item">
-							<div className="weather-by-hour__hour">3pm</div>
-							<img src={sunny} alt="Sunny" />
-							<div>21&deg;</div>
-						</div>
-						<div className="weather-by-hour__item">
-							<div className="weather-by-hour__hour">6pm</div>
-							<img src={sunny} alt="Sunny" />
-							<div>20&deg;</div>
-						</div>
-						<div className="weather-by-hour__item">
-							<div className="weather-by-hour__hour">9pm</div>
-							<img src={mostlySunny} alt="Mayormente Soleado" />
-							<div>18&deg;</div>
-						</div>
 					</div>
 				</div>
 
