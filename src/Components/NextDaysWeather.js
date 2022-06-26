@@ -3,13 +3,12 @@ import React from "react";
 import { getShortDay, getShortDate } from "../Helpers/Dates";
 
 export function NextDaysWeather(props) {
-	console.log(props.weather);
 	return (
 		<React.Fragment>
 			<div className="next-5-days">
 				<h2 className="next-5-days__heading">Siguientes 5 días</h2>
 				<div className="next-5-days__container">
-					{props.weather.daily?.slice(0, 5).map((wd, index) => (
+					{props.weather.daily?.slice(0, 5).map((weather, index) => (
 						<div className="next-5-days__row" key={index}>
 							<div className="next-5-days__date">
 								{getShortDay(index + 1)}
@@ -19,12 +18,12 @@ export function NextDaysWeather(props) {
 							</div>
 
 							<div className="next-5-days__Min">
-								{wd.temp.min.toFixed(1)}&deg;
+								{weather.temp.min.toFixed(1)}&deg;
 								<div className="next-5-days__label">Min</div>
 							</div>
 
 							<div className="next-5-days__Max">
-								{wd.temp.max.toFixed(1)}&deg;
+								{weather.temp.max.toFixed(1)}&deg;
 								<div className="next-5-days__label">Max</div>
 							</div>
 
@@ -32,20 +31,20 @@ export function NextDaysWeather(props) {
 								<img
 									src={
 										props.weather
-											? `http://openweathermap.org/img/wn/${wd.weather[0].icon}@2x.png`
+											? `http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`
 											: ""
 									}
-									alt={wd.weather[0].description}
+									alt={weather.weather[0].description}
 								/>
 							</div>
 
 							<div className="next-5-days__Lluvia">
-								{wd.humidity.toFixed(0)}%
+								{weather.humidity.toFixed(0)}%
 								<div className="next-5-days__label">Humedad</div>
 							</div>
 
 							<div className="next-5-days__Viento">
-								{wd.wind_speed.toFixed(0)}kmh
+								{weather.wind_speed.toFixed(0)}kmh
 								<div className="next-5-days__label">Viento</div>
 							</div>
 						</div>

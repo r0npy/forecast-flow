@@ -7,20 +7,29 @@ export function convertTimestampToHour(timestamp) {
 }
 
 export function getShortDay(addDays) {
-    const date = new Date();
-    date.setDate(date.getDate() + addDays);
-    return `${date
-        .toLocaleDateString("es-ES", {
-            weekday: "long",
-        })
-        .slice(0, 3)}`;
+	const date = new Date();
+	date.setDate(date.getDate() + addDays);
+	return `${date
+		.toLocaleDateString("es-ES", {
+			weekday: "long",
+		})
+		.slice(0, 3)}`;
 }
 
 export function getShortDate(addDays) {
-    const date = new Date();
-    date.setDate(date.getDate() + addDays);
-    return `${date.toLocaleDateString("es-ES", {
-        month: "numeric",
-        day: "numeric",
-    })}`;
+	const date = new Date();
+	date.setDate(date.getDate() + addDays);
+	return `${date.toLocaleDateString("es-ES", {
+		month: "numeric",
+		day: "numeric",
+	})}`;
+}
+
+export function getDate() {
+	const date = new Date();
+	return `${date.toLocaleDateString("es-ES", {
+		weekday: "long",
+		month: "long",
+		day: "numeric",
+	})}`;
 }

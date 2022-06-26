@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { CurrentWeather } from "./Components/CurrentWeather";
 import { NextDaysWeather } from "./Components/NextDaysWeather";
+import { LocationDate } from "./Components/LocationDate";
 
 function App() {
 	const [weather, setWeather] = useState([]);
@@ -42,15 +43,6 @@ function App() {
 			});
 	}
 
-	function getDate() {
-		const date = new Date();
-		return `${date.toLocaleDateString("es-ES", {
-			weekday: "long",
-			month: "long",
-			day: "numeric",
-		})}`;
-	}
-
 	return (
 		<div className="App container">
 			<main className="main-container">
@@ -61,15 +53,23 @@ function App() {
 					onChange={(e) => getWheater(e.target.value)}
 				>
 					<option value="asuncion,py">Asunción, Paraguay</option>
+					<option value="encarnacion,py">Encarnación, Paraguay</option>
+					<option value="ciudad del este,py">Ciudad del Este, Paraguay</option>
+					<option value="villarrica,py">Villarrica, Paraguay</option>
+					<option value="fernando de la mora,py">Fernando de la Mora, Paraguay</option>
 					<option value="buenos%20aires,ar">Buenos Aires, Argentina</option>
 					<option value="new%20york,us">New York, Estados Unidos</option>
+					<option value="washington,us">Washington, Estados Unidos</option>
+					<option value="california,us">California, Estados Unidos</option>
 					<option value="madrid,es">Madrid, España</option>
 					<option value="beijing,cn">Beijing, China</option>
+					<option value="paris,fr">París, Francia</option>
+					<option value="frankfurt,de">Frankfurt, Alemania</option>
+					<option value="bogota,co">Bogotá, Colombia</option>
+					<option value="santiago,cl">Santiago, Chile</option>
 				</select>
 
-				<div className="location-and-date">
-					<div>{getDate()}</div>
-				</div>
+				<LocationDate></LocationDate>
 
 				<CurrentWeather weather={weather}></CurrentWeather>
 
