@@ -1,11 +1,10 @@
 import "./App.css";
-import mostlySunny from "./icons/mostly-sunny.svg";
-import sunny from "./icons/sunny.svg";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 function App() {
 	const [weather, setWeather] = useState([]);
+	const [weatherDaily, setWeatherDaily] = useState([]);
 
 	useEffect(() => {
 		getWheater(
@@ -20,9 +19,18 @@ function App() {
 			.get(
 				`http://api.openweathermap.org/data/2.5/weather?q=${query}&lang=es&units=metric&APPID=7d3e3f41015bfd372c5d4d66b8aa3e51`
 			)
-			.then((response) => {
+			.then(async (response) => {
 				console.log(response.data);
 				setWeather(response.data);
+
+				await axios
+					.get(
+						`http://api.openweathermap.org/data/2.5/onecall?lat=${response.data?.coord?.lat}&lon=${response.data?.coord?.lon}&cnt=5&exclude=hourly,minutely&lang=es&units=metric&APPID=7d3e3f41015bfd372c5d4d66b8aa3e51`
+					)
+					.then((response) => {
+						console.log(response.data);
+						setWeatherDaily(response.data);
+					});
 			});
 	}
 
@@ -35,12 +43,31 @@ function App() {
 		})}`;
 	}
 
-	function convertTimestampToHour(timestamp) {
-		let date = new Date(timestamp * 1000);
-		let hours = "0" + date.getHours();
-		let minutes = "0" + date.getMinutes();
+	function getShortDay(addDays) {
+		const date = new Date();
+		date.setDate(date.getDate() + addDays);
+		return `${date
+			.toLocaleDateString("es-ES", {
+				weekday: "long",
+			})
+			.slice(0, 3)}`;
+	}
 
-		return hours.substr(-2) + ":" + minutes.substr(-2);
+	function getShortDate(addDays) {
+		const date = new Date();
+		date.setDate(date.getDate() + addDays);
+		return `${date.toLocaleDateString("es-ES", {
+			month: "numeric",
+			day: "numeric",
+		})}`;
+	}
+
+	function convertTimestampToHour(timestamp) {
+		const date = new Date(timestamp * 1000);
+		const hours = "0" + date.getHours();
+		const minutes = "0" + date.getMinutes();
+
+		return hours.slice(-2) + ":" + minutes.slice(-2);
 	}
 
 	return (
@@ -121,156 +148,47 @@ function App() {
 				<div className="next-5-days">
 					<h2 className="next-5-days__heading">Siguientes 5 días</h2>
 					<div className="next-5-days__container">
-						<div className="next-5-days__row">
-							<div className="next-5-days__date">
-								Lun
-								<div className="next-5-days__label">30/7</div>
-							</div>
+						{weatherDaily?.daily?.slice(0, 5).map((wd, index) => (
+							<div className="next-5-days__row" key={index}>
+								<div className="next-5-days__date">
+									{getShortDay(index + 1)}
+									<div className="next-5-days__label">
+										{getShortDate(index + 1)}
+									</div>
+								</div>
 
-							<div className="next-5-days__Min">
-								10&deg;
-								<div className="next-5-days__label">Min</div>
-							</div>
+								<div className="next-5-days__Min">
+									{wd.temp.min.toFixed(1)}&deg;
+									<div className="next-5-days__label">Min</div>
+								</div>
 
-							<div className="next-5-days__Max">
-								21&deg;
-								<div className="next-5-days__label">Max</div>
-							</div>
+								<div className="next-5-days__Max">
+									{wd.temp.max.toFixed(1)}&deg;
+									<div className="next-5-days__label">Max</div>
+								</div>
 
-							<div className="next-5-days__icon">
-								<img src={sunny} alt="Sunny" />
-							</div>
+								<div className="next-5-days__icon">
+									<img
+										src={
+											weather.weather
+												? `http://openweathermap.org/img/wn/${wd.weather[0].icon}@2x.png`
+												: ""
+										}
+										alt={wd.weather[0].description}
+									/>
+								</div>
 
-							<div className="next-5-days__Lluvia">
-								0%
-								<div className="next-5-days__label">Lluvia</div>
-							</div>
+								<div className="next-5-days__Lluvia">
+									{wd.humidity.toFixed(0)}%
+									<div className="next-5-days__label">Humedad</div>
+								</div>
 
-							<div className="next-5-days__Viento">
-								12mph
-								<div className="next-5-days__label">Viento</div>
+								<div className="next-5-days__Viento">
+									{wd.wind_speed.toFixed(0)}kmh
+									<div className="next-5-days__label">Viento</div>
+								</div>
 							</div>
-						</div>
-						<div className="next-5-days__row">
-							<div className="next-5-days__date">
-								Mar
-								<div className="next-5-days__label">31/7</div>
-							</div>
-
-							<div className="next-5-days__Min">
-								9&deg;
-								<div className="next-5-days__label">Min</div>
-							</div>
-
-							<div className="next-5-days__Max">
-								18&deg;
-								<div className="next-5-days__label">Max</div>
-							</div>
-
-							<div className="next-5-days__icon">
-								<img src={mostlySunny} alt="Mayormente Soleado" />
-							</div>
-
-							<div className="next-5-days__Lluvia">
-								3%
-								<div className="next-5-days__label">Lluvia</div>
-							</div>
-
-							<div className="next-5-days__Viento">
-								7mph
-								<div className="next-5-days__label">Viento</div>
-							</div>
-						</div>
-						<div className="next-5-days__row">
-							<div className="next-5-days__date">
-								Mie
-								<div className="next-5-days__label">1/8</div>
-							</div>
-
-							<div className="next-5-days__Min">
-								7&deg;
-								<div className="next-5-days__label">Min</div>
-							</div>
-
-							<div className="next-5-days__Max">
-								15&deg;
-								<div className="next-5-days__label">Max</div>
-							</div>
-
-							<div className="next-5-days__icon">
-								<img src={mostlySunny} alt="Mayormente Soleado" />
-							</div>
-
-							<div className="next-5-days__Lluvia">
-								75%
-								<div className="next-5-days__label">Lluvia</div>
-							</div>
-
-							<div className="next-5-days__Viento">
-								11mph
-								<div className="next-5-days__label">Viento</div>
-							</div>
-						</div>
-						<div className="next-5-days__row">
-							<div className="next-5-days__date">
-								Jue
-								<div className="next-5-days__label">2/8</div>
-							</div>
-
-							<div className="next-5-days__Min">
-								12&deg;
-								<div className="next-5-days__label">Min</div>
-							</div>
-
-							<div className="next-5-days__Max">
-								24&deg;
-								<div className="next-5-days__label">Max</div>
-							</div>
-
-							<div className="next-5-days__icon">
-								<img src={sunny} alt="Sunny" />
-							</div>
-
-							<div className="next-5-days__Lluvia">
-								2%
-								<div className="next-5-days__label">Lluvia</div>
-							</div>
-
-							<div className="next-5-days__Viento">
-								8mph
-								<div className="next-5-days__label">Viento</div>
-							</div>
-						</div>
-						<div className="next-5-days__row">
-							<div className="next-5-days__date">
-								Vie
-								<div className="next-5-days__label">30/7</div>
-							</div>
-
-							<div className="next-5-days__Min">
-								10&deg;
-								<div className="next-5-days__label">Min</div>
-							</div>
-
-							<div className="next-5-days__Max">
-								21&deg;
-								<div className="next-5-days__label">Max</div>
-							</div>
-
-							<div className="next-5-days__icon">
-								<img src={mostlySunny} alt="Mayormente Soleado" />
-							</div>
-
-							<div className="next-5-days__Lluvia">
-								0%
-								<div className="next-5-days__label">Lluvia</div>
-							</div>
-
-							<div className="next-5-days__Viento">
-								12mph
-								<div className="next-5-days__label">Viento</div>
-							</div>
-						</div>
+						))}
 					</div>
 				</div>
 			</main>

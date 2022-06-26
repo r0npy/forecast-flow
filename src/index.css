@@ -109,8 +109,8 @@ select option {
   justify-content: space-around;
   padding-bottom: 1em;
   width: 100%;
-  border-top: 1px solid rgba(255,255,255,0.5);
-  border-bottom: 1px solid rgba(255,255,255,0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 @media screen and (min-width: 700px) {
@@ -119,7 +119,7 @@ select option {
     padding-bottom: 0;
     border-top: none;
     border-bottom: none;
-    border-left: 1px solid rgba(255,255,255,0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
   }
 }
 
@@ -129,10 +129,11 @@ select option {
 }
 
 .current-stats__label {
-  color: rgba(255,255,255,0.6);
+  color: rgba(255, 255, 255, 0.6);
 }
 
 @media screen and (min-width: 700px) {
+
   .current-temperature,
   .current-stats {
     width: 50%;
@@ -160,13 +161,13 @@ select option {
   padding: 0.8em 0;
   width: 100%;
   border-radius: 5px;
-  background-color: rgba(0,0,0,0.20);
+  background-color: rgba(0, 0, 0, 0.20);
   font-size: 1.19em;
   text-align: center;
 }
 
 .next-5-days__label {
-  color: rgba(255,255,255,0.6);
+  color: rgba(255, 255, 255, 0.6);
   font-size: 0.83em;
 }
 
@@ -178,6 +179,7 @@ select option {
 .next-5-days__wind {
   width: 33.33333%;
   font-size: 0.95em;
+  text-transform: capitalize;
 }
 
 .next-5-days__date,
@@ -187,6 +189,7 @@ select option {
 }
 
 @media screen and (min-width: 450px) {
+
   .next-5-days__date,
   .next-5-days__high,
   .next-5-days__low,
@@ -195,6 +198,7 @@ select option {
   .next-5-days__wind {
     width: 16.666666%;
     margin-bottom: initial;
+    text-align: center;
   }
 
   .next-5-days__date {
