@@ -48,9 +48,10 @@ function App() {
 			<main className="main-container">
 				<select
 					id="slcCity"
-					className="form-select form-select-lg mb-3"
+					className="form-select form-select-lg mb-3 animate__animated animate__bounceInDown"
 					aria-label=".form-select-lg example"
 					onChange={(e) => getWheater(e.target.value)}
+					
 				>
 					<option value="asuncion,py">Asunción, Paraguay</option>
 					<option value="encarnacion,py">Encarnación, Paraguay</option>

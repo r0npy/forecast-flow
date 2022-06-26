@@ -6,10 +6,10 @@ export function NextDaysWeather(props) {
 	return (
 		<React.Fragment>
 			<div className="next-5-days">
-				<h2 className="next-5-days__heading">Siguientes 5 días</h2>
+				<h2 className="next-5-days__heading animate__animated animate__bounceInDown">Siguientes 5 días</h2>
 				<div className="next-5-days__container">
 					{props.weather.daily?.slice(0, 5).map((weather, index) => (
-						<div className="next-5-days__row" key={index}>
+						<div className="next-5-days__row animate__animated animate__flipInX" key={index}>
 							<div className="next-5-days__date">
 								{getShortDay(index + 1)}
 								<div className="next-5-days__label">

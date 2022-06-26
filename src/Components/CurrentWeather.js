@@ -5,7 +5,7 @@ import { convertTimestampToHour } from "../Helpers/Dates";
 export function CurrentWeather(props) {
 	return (
 		<React.Fragment>
-			<div className="current-temperature">
+			<div className="current-temperature animate__animated animate__bounceInDown">
 				<div className="current-temperature__icon-container">
 					<img
 						src={
@@ -29,7 +29,7 @@ export function CurrentWeather(props) {
 				</div>
 			</div>
 
-			<div className="current-stats">
+			<div className="current-stats animate__animated animate__bounceInDown">
 				<div>
 					<div className="current-stats__value">
 						{props.weather.main?.temp_max.toFixed(1)}&deg;
