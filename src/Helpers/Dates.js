@@ -5,3 +5,22 @@ export function convertTimestampToHour(timestamp) {
 
 	return hours.slice(-2) + ":" + minutes.slice(-2);
 }
+
+export function getShortDay(addDays) {
+    const date = new Date();
+    date.setDate(date.getDate() + addDays);
+    return `${date
+        .toLocaleDateString("es-ES", {
+            weekday: "long",
+        })
+        .slice(0, 3)}`;
+}
+
+export function getShortDate(addDays) {
+    const date = new Date();
+    date.setDate(date.getDate() + addDays);
+    return `${date.toLocaleDateString("es-ES", {
+        month: "numeric",
+        day: "numeric",
+    })}`;
+}
