@@ -31,7 +31,7 @@ export function NextDaysWeather(props) {
 								<img
 									src={
 										props.weather
-											? `http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`
+											? `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`
 											: ""
 									}
 									alt={weather.weather[0].description}

@@ -10,7 +10,7 @@ export function CurrentWeather(props) {
 					<img
 						src={
 							props.weather.weather
-								? `http://openweathermap.org/img/wn/${props.weather.weather[0]?.icon}@2x.png`
+								? `https://openweathermap.org/img/wn/${props.weather.weather[0]?.icon}@2x.png`
 								: ""
 						}
 						className="current-temperature__icon"
