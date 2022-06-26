@@ -20,7 +20,7 @@ function App() {
 	async function getWheater(query) {
 		await axios
 			.get(
-				`http://api.openweathermap.org/data/2.5/weather?q=${query}&lang=es&units=metric&APPID=7d3e3f41015bfd372c5d4d66b8aa3e51`
+				`https://api.openweathermap.org/data/2.5/weather?q=${query}&lang=es&units=metric&APPID=7d3e3f41015bfd372c5d4d66b8aa3e51`
 			)
 			.then(async (response) => {
 				//console.log(response.data);
@@ -28,7 +28,7 @@ function App() {
 
 				await axios
 					.get(
-						`http://api.openweathermap.org/data/2.5/onecall?lat=${response.data?.coord?.lat}&lon=${response.data?.coord?.lon}&cnt=5&exclude=hourly,minutely&lang=es&units=metric&APPID=7d3e3f41015bfd372c5d4d66b8aa3e51`
+						`https://api.openweathermap.org/data/2.5/onecall?lat=${response.data?.coord?.lat}&lon=${response.data?.coord?.lon}&cnt=5&exclude=hourly,minutely&lang=es&units=metric&APPID=7d3e3f41015bfd372c5d4d66b8aa3e51`
 					)
 					.then((response) => {
 						//console.log(response.data);
