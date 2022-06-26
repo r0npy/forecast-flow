@@ -1,70 +1,31 @@
-# Getting Started with Create React App
+# Info contextual
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto fue creado con [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Instalar dependencias
 
-In the project directory, you can run:
+Una vez descargado el repositorio, es necesitario instalar las paqueterias con el siguiente comando (estar posicionado con el terminal en el mismo path del proyecto)
+
+### `npm install`
+
+## Instalar dependencias
+
+Una vez que finalice la instalación de estas dependencias, para levantar el servidor de desarrollo ejecutar el siguiente comando:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Montar la WebApp
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Esto creará el servidor de desarrollo y para visualizar la webapp debe abrir el siguiente enlace en su navegador [http://localhost:3000](http://localhost:3000)
 
-### `npm test`
+## Generar el compilado para producción
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Para crear los archivos finales para un ambiente de producción, basta con ejecutar el siguiente comando. Esta creará los archivos en el ruta build, y esos luego los puede copiar a la carpeta del servidor web que desee utilizar.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Funcionamiento General
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Una vez montada la webapp, al inicio de la misma le aparece un listado de ciudades predefinidas y cada vez que cambie la ciudad, esta realizará la consulta al API y desplegará la nueva información en pantalla.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Obs: es obligatorio tener acceso sin restricciones a Internet para que puedan descargarse los recursos de los CDN y/o acceder a la API para consumir la información de la misma.
