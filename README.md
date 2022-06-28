@@ -12,7 +12,7 @@ Una vez descargado el repositorio, es necesitario instalar las paqueterias con e
 
 Una vez que finalice la instalación de estas dependencias, para levantar el servidor de desarrollo ejecutar el siguiente comando:
 
-### `npm start`
+### `npm run start`
 
 ## Montar la WebApp
 
